@@ -1,6 +1,16 @@
+// Number = 1 2 3 4 673 78.577
+// string = 'SD Creation' `asdasd`
+
 function getTotal(val1: number, val2: number) {
   return val1 + val2;
 }
 
-const result = getTotal(10, 20);
-console.log(result);
+function greet(prefix: string, name: string, clg: boolean) {
+  if (clg) {
+    console.log(`${prefix} ${name}`);
+  } else {
+    return `${prefix} ${name}`;
+  }
+}
+
+console.log(greet("Hello from ", "SD Creations", false));
