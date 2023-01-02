@@ -1,5 +1,6 @@
-function getTotal(val1, val2) {
-    return val1 + val2;
-}
-var result = getTotal(10, 20);
-console.log(result);
+var car = {
+    brand: "Mahindra",
+    model: "XUV",
+    variant: ["700", "500", "300"]
+};
+console.log(car.variant);

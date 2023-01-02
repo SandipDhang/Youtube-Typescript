@@ -1,6 +1,11 @@
-function getTotal(val1: number, val2: number) {
-  return val1 + val2;
-}
+const car: {
+  brand: string;
+  model: string;
+  variant: string[];
+} = {
+  brand: "Mahindra",
+  model: "XUV",
+  variant: ["700", "500", "300"],
+};
 
-const result = getTotal(10, 20);
-console.log(result);
+console.log(car.variant);
