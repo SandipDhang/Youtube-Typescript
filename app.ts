@@ -1,11 +1,21 @@
+enum Variant {
+  SEVEN = 700,
+  FIVE = 500,
+  THREE = 300,
+}
+
 const car: {
   brand: string;
   model: string;
-  variant: string[];
+  variant: Variant;
 } = {
   brand: "Mahindra",
   model: "XUV",
-  variant: ["700", "500", "300"],
+  variant: Variant.SEVEN,
 };
+
+if (car.variant === Variant.SEVEN) {
+  console.log(car.variant);
+}
 
 console.log(car.variant);
