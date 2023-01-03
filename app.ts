@@ -7,10 +7,12 @@ enum Variant {
 const car: {
   brand: string;
   model: string;
+  // variant: [string, string, string];
   variant: Variant;
 } = {
   brand: "Mahindra",
   model: "XUV",
+  // variant: ["700", "500", "300"],
   variant: Variant.SEVEN,
 };
 
