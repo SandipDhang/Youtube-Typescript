@@ -1,15 +1,9 @@
-var Variant;
-(function (Variant) {
-    Variant[Variant["SEVEN"] = 700] = "SEVEN";
-    Variant[Variant["FIVE"] = 500] = "FIVE";
-    Variant[Variant["THREE"] = 300] = "THREE";
-})(Variant || (Variant = {}));
-var car = {
-    brand: "Mahindra",
-    model: "XUV",
-    variant: Variant.SEVEN
-};
-if (car.variant === Variant.SEVEN) {
-    console.log(car.variant);
+function getTotal(val1, val2) {
+    return val1 + val2;
 }
-console.log(car.variant);
+var car = {
+    name: "XUV",
+    brand: "Mahindra",
+    topSpeed: { speed: 50 }
+};
+console.log(car.topSpeed);

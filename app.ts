@@ -1,23 +1,17 @@
-enum Variant {
-  SEVEN = 700,
-  FIVE = 500,
-  THREE = 300,
+function getTotal(val1: any, val2: any) {
+  return val1 + val2;
 }
 
 const car: {
+  name: string;
   brand: string;
-  model: string;
-  // variant: [string, string, string];
-  variant: Variant;
+  model: "300" | "500" | "700";
+  topSpeed: number | string | boolean | { speed: number };
 } = {
+  name: "XUV",
   brand: "Mahindra",
-  model: "XUV",
-  // variant: ["700", "500", "300"],
-  variant: Variant.SEVEN,
+  model: "500",
+  topSpeed: { speed: 50 },
 };
 
-if (car.variant === Variant.SEVEN) {
-  console.log(car.variant);
-}
-
-console.log(car.variant);
+console.log(car.topSpeed);
