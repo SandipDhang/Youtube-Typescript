@@ -1,17 +1,23 @@
-function getTotal(val1: any, val2: any) {
-  return val1 + val2;
-}
+type TopSpeed = number | string | boolean | { speed: number };
 
-const car: {
+type Car = {
   name: string;
   brand: string;
   model: "300" | "500" | "700";
-  topSpeed: number | string | boolean | { speed: number };
-} = {
+  topSpeed: TopSpeed;
+};
+
+function logValue(value: any): void {
+  console.log(value);
+}
+
+logValue("asd");
+
+const car: Car = {
   name: "XUV",
   brand: "Mahindra",
   model: "500",
   topSpeed: { speed: 50 },
 };
 
-console.log(car.topSpeed);
+logValue(car);

@@ -1,9 +1,11 @@
-function getTotal(val1, val2) {
-    return val1 + val2;
+function logValue(value) {
+    console.log(value);
 }
+logValue("asd");
 var car = {
     name: "XUV",
     brand: "Mahindra",
+    model: "500",
     topSpeed: { speed: 50 }
 };
-console.log(car.topSpeed);
+logValue(car);
