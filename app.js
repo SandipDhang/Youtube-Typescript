@@ -1,5 +1,4 @@
-function getTotal(val1, val2) {
-    return val1 + val2;
+function throwErr(msg, code) {
+  throw { msg: msg, code: code };
 }
-var result = getTotal(10, 20);
-console.log(result);
+throwErr("SERVER_ERROR", 500);
