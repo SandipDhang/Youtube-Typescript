@@ -1,11 +1,4 @@
-function logValue(value) {
-    console.log(value);
+function throwErr(msg, code) {
+    throw { msg: msg, code: code };
 }
-logValue("asd");
-var car = {
-    name: "XUV",
-    brand: "Mahindra",
-    model: "500",
-    topSpeed: { speed: 50 }
-};
-logValue(car);
+throwErr("SERVER_ERROR", 500);

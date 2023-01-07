@@ -1,23 +1,5 @@
-type TopSpeed = number | string | boolean | { speed: number };
-
-type Car = {
-  name: string;
-  brand: string;
-  model: "300" | "500" | "700";
-  topSpeed: TopSpeed;
-};
-
-function logValue(value: any): void {
-  console.log(value);
+function throwErr(msg: string, code: number): never {
+  throw { msg, code };
 }
 
-logValue("asd");
-
-const car: Car = {
-  name: "XUV",
-  brand: "Mahindra",
-  model: "500",
-  topSpeed: { speed: 50 },
-};
-
-logValue(car);
+throwErr("SERVER_ERROR", 500);
