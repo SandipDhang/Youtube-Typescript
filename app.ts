@@ -1,6 +1,5 @@
-function getTotal(val1: number, val2: number) {
-  return val1 + val2;
-}
+const btn = document.querySelector("#btn")!;
 
-const result = getTotal(10, 20);
-console.log(result);
+btn.addEventListener("click", () => {
+  console.log("Clicked");
+});
