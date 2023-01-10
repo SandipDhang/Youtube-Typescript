@@ -1,6 +1,22 @@
-function getTotal(val1: number, val2: number) {
-  return val1 + val2;
+class Car {
+  model: string;
+  brand: string = "Mahindra";
+
+  constructor(mdl: string) {
+    this.model = mdl;
+  }
+
+  getDetails(this: Car) {
+    console.log({ model: this.model });
+  }
 }
 
-const result = getTotal(10, 20);
-console.log(result);
+const xuvCar = new Car("XUV");
+
+const xuvCarCopy = {
+  model: "asd",
+  brand: "dsa",
+  getDetails: xuvCar.getDetails,
+};
+
+xuvCarCopy.getDetails();
