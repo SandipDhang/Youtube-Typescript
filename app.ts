@@ -1,33 +1,24 @@
 class Car {
-  // model: string;
-  // readonly brand: string = "Mahindra";
-  // private colorVariant: string[] = [];
-
-  constructor(
-    public model: string,
-    readonly brand: string,
-    private colorVariant: string[]
-  ) {
-    // this.model = mdl;
-    // this.brand = brand;
-    // this.colorVariant = colorVariant;
-  }
+  constructor(protected model: string, readonly brand: string) {}
 
   getDetails(this: Car) {
     console.log(this);
   }
-
-  addColorVariant(value: string) {
-    this.colorVariant.push(value);
-  }
 }
 
-const xuvCar = new Car("XUV", "Mahindra", ["black"]);
-// xuvCar.addColorVariant("black");
-xuvCar.addColorVariant("white");
+class Ecar extends Car {
+  private chargingTime: number;
+  constructor(mdl: string, brand: string, chrgTym: number) {
+    super(mdl, brand);
+    this.chargingTime = chrgTym;
+    this.model = "sad";
+  }
+  // getDetails(this: Car) {
+  //   console.log("This is from subclass");
+  // }
+}
 
-// xuvCar.colorVariant[2] = "red";
+const xuvCar = new Ecar("XUV", "Mahindra", 30);
 
-// xuvCar.brand = "TATA";
-
-console.log(xuvCar);
+// xuvCar.model = "sad";
+xuvCar.getDetails();
