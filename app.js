@@ -29,11 +29,25 @@ var Ecar = /** @class */ (function (_super) {
     function Ecar(mdl, brand, chrgTym) {
         var _this = _super.call(this, mdl, brand) || this;
         _this.chargingTime = chrgTym;
-        _this.model = "sad";
         return _this;
     }
+    Object.defineProperty(Ecar.prototype, "getChargingTime", {
+        get: function () {
+            return this.chargingTime;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Ecar.prototype, "setChargingTime", {
+        set: function (time) {
+            this.chargingTime = time;
+        },
+        enumerable: false,
+        configurable: true
+    });
     return Ecar;
 }(Car));
 var xuvCar = new Ecar("XUV", "Mahindra", 30);
-// xuvCar.model = "sad";
 xuvCar.getDetails();
+xuvCar.setChargingTime = 40;
+console.log(xuvCar.getChargingTime);
