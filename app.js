@@ -19,9 +19,13 @@ var Car = /** @class */ (function () {
         this.model = model;
         this.brand = brand;
     }
+    Car.log = function (value) {
+        console.log(value);
+    };
     Car.prototype.getDetails = function () {
         console.log(this);
     };
+    Car.mfgYear = 2023;
     return Car;
 }());
 var Ecar = /** @class */ (function (_super) {
@@ -45,9 +49,17 @@ var Ecar = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
+    Ecar.prototype.getDetails = function () {
+        console.log("This is from SUBCLASS Ecar", this);
+    };
+    Ecar.prototype.buildCar = function () {
+        console.log("Building an Electric car");
+    };
     return Ecar;
 }(Car));
 var xuvCar = new Ecar("XUV", "Mahindra", 30);
 xuvCar.getDetails();
+xuvCar.buildCar();
 xuvCar.setChargingTime = 40;
-console.log(xuvCar.getChargingTime);
+console.log(Car.mfgYear);
+Car.log("ANYVALUE");

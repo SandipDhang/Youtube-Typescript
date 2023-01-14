@@ -1,8 +1,14 @@
-class Car {
+abstract class Car {
+  static mfgYear = 2023;
+  static log(value: string) {
+    console.log(value);
+  }
   constructor(public model: string, readonly brand: string) {}
   getDetails(this: Car) {
     console.log(this);
   }
+
+  abstract buildCar(): void;
 }
 class Ecar extends Car {
   private chargingTime: number;
@@ -18,9 +24,20 @@ class Ecar extends Car {
   set setChargingTime(time: number) {
     this.chargingTime = time;
   }
+
+  getDetails(this: Car) {
+    console.log("This is from SUBCLASS Ecar", this);
+  }
+
+  buildCar() {
+    console.log("Building an Electric car");
+  }
 }
 
 const xuvCar = new Ecar("XUV", "Mahindra", 30);
 xuvCar.getDetails();
+xuvCar.buildCar();
 xuvCar.setChargingTime = 40;
-console.log(xuvCar.getChargingTime);
+console.log(Car.mfgYear);
+
+Car.log("ANYVALUE");
