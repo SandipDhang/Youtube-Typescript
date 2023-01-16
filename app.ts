@@ -1,20 +1,39 @@
-interface Contact {
+type Contact = {
   email: string;
   phNo: string;
-}
-interface Individual extends Contact {
+};
+type Individual = {
   name: string;
-}
+};
 
-class User implements Individual {
-  constructor(public name: string, public email: string, public phNo: string) {}
+type User = Individual & Contact;
+type NewUser = Individual | undefined;
 
-  getInformation(this: User) {
-    console.log(this);
-  }
-}
+type AnotherType = User & NewUser;
 
-const user1 = new User("SD", "asd@asd.com", "3456789");
+const anyObj: AnotherType = { name: "asd", email: "asdasd", phNo: "asdasd" };
+
+const user1: User = {
+  name: "SD",
+  email: "asd@asd.com",
+  phNo: "34567856789",
+};
+
+// class User implements Individual {
+//   constructor(
+//     public name: string,
+//     public email?: string,
+//     public phNo?: string
+//   ) {}
+
+//   getInformation(this: User) {
+//     if (this.email) {
+//       console.log(this.email.toLocaleLowerCase());
+//     }
+//   }
+// }
+
+// const user1 = new User("SD");
 // const user1 = new User("SD");
 
-user1.getInformation();
+// user1.getInformation();
