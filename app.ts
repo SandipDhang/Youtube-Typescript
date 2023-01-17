@@ -1,39 +1,28 @@
-type Contact = {
-  email: string;
-  phNo: string;
-};
-type Individual = {
-  name: string;
-};
+interface EV {
+  type: "EV";
+  kmpu: number;
+}
+interface NonEV {
+  type: "NonEV";
+  kmpl: number;
+}
 
-type User = Individual & Contact;
-type NewUser = Individual | undefined;
+type Car = EV | NonEV;
 
-type AnotherType = User & NewUser;
+function getMileageInfo(car: Car) {
+  switch (car.type) {
+    case "EV":
+      console.log(car.kmpu);
+      break;
+    case "NonEV":
+      console.log(car.kmpl);
+  }
+}
 
-const anyObj: AnotherType = { name: "asd", email: "asdasd", phNo: "asdasd" };
+getMileageInfo({ type: "NonEV", kmpl: 15 });
 
-const user1: User = {
-  name: "SD",
-  email: "asd@asd.com",
-  phNo: "34567856789",
-};
+// TYPE CASTING
+// const nameInput = <HTMLInputElement>document.getElementById("name")!;
+const nameInput = document.getElementById("name")! as HTMLInputElement;
 
-// class User implements Individual {
-//   constructor(
-//     public name: string,
-//     public email?: string,
-//     public phNo?: string
-//   ) {}
-
-//   getInformation(this: User) {
-//     if (this.email) {
-//       console.log(this.email.toLocaleLowerCase());
-//     }
-//   }
-// }
-
-// const user1 = new User("SD");
-// const user1 = new User("SD");
-
-// user1.getInformation();
+(nameInput as HTMLInputElement).value = "SD CREATION";
