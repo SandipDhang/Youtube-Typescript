@@ -1,15 +1,10 @@
 "use strict";
-function getMileageInfo(car) {
-    switch (car.type) {
-        case "EV":
-            console.log(car.kmpu);
-            break;
-        case "NonEV":
-            console.log(car.kmpl);
+// FUNCTION OVERLOADS
+function combineValues(val1, val2) {
+    if (typeof val1 === "string" || typeof val2 === "string") {
+        return val1.toString() + val2.toString();
     }
+    return val1 + val2;
 }
-getMileageInfo({ type: "NonEV", kmpl: 15 });
-// TYPE CASTING
-// const nameInput = <HTMLInputElement>document.getElementById("name")!;
-var nameInput = document.getElementById("name");
-nameInput.value = "SD CREATION";
+var myValue = combineValues(10, 20);
+console.log(myValue);

@@ -1,28 +1,16 @@
-interface EV {
-  type: "EV";
-  kmpu: number;
-}
-interface NonEV {
-  type: "NonEV";
-  kmpl: number;
-}
+// FUNCTION OVERLOADS
 
-type Car = EV | NonEV;
-
-function getMileageInfo(car: Car) {
-  switch (car.type) {
-    case "EV":
-      console.log(car.kmpu);
-      break;
-    case "NonEV":
-      console.log(car.kmpl);
+function combineValues(val1: string, val2: string): string;
+function combineValues(val1: number, val2: number): number;
+function combineValues(val1: string, val2: number): string;
+function combineValues(val1: string, val2: string): string;
+function combineValues(val1: string | number, val2: string | number) {
+  if (typeof val1 === "string" || typeof val2 === "string") {
+    return val1.toString() + val2.toString();
   }
+  return val1 + val2;
 }
 
-getMileageInfo({ type: "NonEV", kmpl: 15 });
+const myValue = combineValues(10, 20);
 
-// TYPE CASTING
-// const nameInput = <HTMLInputElement>document.getElementById("name")!;
-const nameInput = document.getElementById("name")! as HTMLInputElement;
-
-(nameInput as HTMLInputElement).value = "SD CREATION";
+console.log(myValue);
