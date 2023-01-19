@@ -1,10 +1,19 @@
 "use strict";
-// FUNCTION OVERLOADS
-function combineValues(val1, val2) {
-    if (typeof val1 === "string" || typeof val2 === "string") {
-        return val1.toString() + val2.toString();
-    }
-    return val1 + val2;
-}
-var myValue = combineValues(10, 20);
-console.log(myValue);
+const userArr = [
+    {
+        _id: "123",
+        name: "SD",
+        age: 30,
+    },
+    {
+        _id: "124",
+        name: "DS",
+        age: 20,
+    },
+];
+const response = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(userArr);
+    }, 3000);
+});
+response.then((data) => console.log(data[1].age));

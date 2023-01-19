@@ -1,16 +1,26 @@
-// FUNCTION OVERLOADS
+type User = {
+  _id: string;
+  name: string;
+  age: number;
+};
 
-function combineValues(val1: string, val2: string): string;
-function combineValues(val1: number, val2: number): number;
-function combineValues(val1: string, val2: number): string;
-function combineValues(val1: string, val2: string): string;
-function combineValues(val1: string | number, val2: string | number) {
-  if (typeof val1 === "string" || typeof val2 === "string") {
-    return val1.toString() + val2.toString();
-  }
-  return val1 + val2;
-}
+const userArr: Array<User> = [
+  {
+    _id: "123",
+    name: "SD",
+    age: 30,
+  },
+  {
+    _id: "124",
+    name: "DS",
+    age: 20,
+  },
+];
 
-const myValue = combineValues(10, 20);
+const response: Promise<User[]> = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(userArr);
+  }, 3000);
+});
 
-console.log(myValue);
+response.then((data) => console.log(data[1].age));
