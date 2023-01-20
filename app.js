@@ -1,19 +1,26 @@
 "use strict";
-const userArr = [
-    {
-        _id: "123",
-        name: "SD",
-        age: 30,
-    },
-    {
-        _id: "124",
-        name: "DS",
-        age: 20,
-    },
-];
-const response = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(userArr);
-    }, 3000);
-});
-response.then((data) => console.log(data[1].age));
+const myArr = [];
+// function combineData<D extends object, E extends object>(data1: D, data2: E) {
+//   return { ...data1, ...data2 };
+// }
+// const combineData = <D, E>(data1: D, data2: E) => {
+//   return { ...data1, ...data2 };
+// };
+// const combinedData = combineData({ name: "SD" }, { id: "123" });
+// console.log(combinedData.name);
+// const getValueFromObj = <T extends object, U extends keyof T>(obj: T, key: U) => {
+//   return obj[key];
+// };
+// const value = getValueFromObj({ name: "SD" }, "name");
+class MyClass {
+    constructor() {
+        this.itemsArr = [];
+    }
+    addItems(value) {
+        this.itemsArr.push(value);
+    }
+}
+const myValueArr = new MyClass();
+const myValueArr1 = new MyClass();
+myValueArr1.addItems(12);
+console.log(myValueArr.itemsArr[0]);
