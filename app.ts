@@ -1,32 +1,24 @@
-const myArr: Array<string> = [];
+function MyDecorator(msg: string) {
+  return function (classCons: Function) {
+    console.log(msg, classCons);
+  };
+}
 
-// function combineData<D extends object, E extends object>(data1: D, data2: E) {
-//   return { ...data1, ...data2 };
-// }
+@MyDecorator("USER Class is creating")
+class User {
+  name: string;
+  email: string;
 
-// const combineData = <D, E>(data1: D, data2: E) => {
-//   return { ...data1, ...data2 };
-// };
+  constructor(n: string, e: string) {
+    this.name = n;
+    this.email = e;
+  }
 
-// const combinedData = combineData({ name: "SD" }, { id: "123" });
-
-// console.log(combinedData.name);
-
-// const getValueFromObj = <T extends object, U extends keyof T>(obj: T, key: U) => {
-//   return obj[key];
-// };
-
-// const value = getValueFromObj({ name: "SD" }, "name");
-
-class MyClass<T> {
-  itemsArr: T[] = [];
-
-  addItems(value: T) {
-    this.itemsArr.push(value);
+  getDetails(this: User) {
+    console.log(this);
   }
 }
 
-const myValueArr = new MyClass<string>();
-const myValueArr1 = new MyClass<number>();
-myValueArr1.addItems(12);
-console.log(myValueArr.itemsArr[0]);
+// const user = new User("SD", "sd@creations.com");
+
+// console.log(user);
