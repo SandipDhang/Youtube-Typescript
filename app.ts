@@ -1,24 +1,32 @@
-function MyDecorator(msg: string) {
-  return function (classCons: Function) {
-    console.log(msg, classCons);
+function BindTheClass(
+  constrctor: any,
+  methodName: string,
+  desciption: PropertyDescriptor
+) {
+  console.log({ constrctor, methodName, desciption });
+
+  const oldMethod = desciption.value;
+  const modifiedMethod = {
+    configurable: true,
+    enumerable: false,
+    get() {
+      return oldMethod.bind(this);
+    },
   };
+  return modifiedMethod;
 }
 
-@MyDecorator("USER Class is creating")
-class User {
-  name: string;
-  email: string;
+class Logger {
+  message = "Button has been clicked";
 
-  constructor(n: string, e: string) {
-    this.name = n;
-    this.email = e;
-  }
-
-  getDetails(this: User) {
-    console.log(this);
+  @BindTheClass
+  logToConsole() {
+    console.log(this.message);
   }
 }
 
-// const user = new User("SD", "sd@creations.com");
+const logger = new Logger();
 
-// console.log(user);
+logger.logToConsole();
+
+document.getElementById("btn")?.addEventListener("click", logger.logToConsole);
